@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>🃏 Poker Club 25/26</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -15,21 +14,17 @@ body{font-family:'DM Sans',sans-serif;background:#f0f0f0;color:#111;}
 .hero-title{font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;letter-spacing:3px;line-height:1;}
 .hero-sub{font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;letter-spacing:2px;text-transform:uppercase;}
 .hero-badge{display:inline-block;background:#e63946;color:#fff;font-size:11px;font-weight:500;padding:4px 14px;border-radius:20px;margin-top:10px;}
-.tabs{display:flex;background:#1a1a2e;border-bottom:3px solid #e63946;padding:0 0.25rem;position:sticky;top:0;z-index:10;}
-.tab{flex:1;padding:11px 2px;text-align:center;font-size:10px;font-weight:500;color:rgba(255,255,255,0.4);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-3px;letter-spacing:0.3px;text-transform:uppercase;transition:color 0.15s;}
+.tabs{display:flex;background:#1a1a2e;border-bottom:3px solid #e63946;padding:0;position:sticky;top:0;z-index:10;}
+.tab{flex:1;padding:11px 1px;text-align:center;font-size:10px;font-weight:500;color:rgba(255,255,255,0.4);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-3px;text-transform:uppercase;}
 .tab.active{color:#e63946;border-bottom-color:#e63946;}
 .section{padding:1rem;display:none;}
 .section.active{display:block;}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:18px;color:#111;letter-spacing:1px;margin-bottom:0.75rem;display:flex;align-items:center;gap:8px;}
-
-/* Podium */
 .podium{display:flex;align-items:flex-end;justify-content:center;gap:10px;margin:1rem 0 1.5rem;}
 .pod{display:flex;flex-direction:column;align-items:center;gap:4px;}
-.pod-bar{width:76px;border-radius:6px 6px 0 0;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;}
+.pod-bar{width:76px;border-radius:6px 6px 0 0;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:16px;color:#fff;}
 .pod-name{font-size:11px;font-weight:500;color:#111;text-align:center;max-width:76px;line-height:1.3;}
 .pod-pos{font-size:10px;color:#666;}
-
-/* Ranking */
 .ranking-list{display:flex;flex-direction:column;gap:6px;}
 .rank-row{background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:10px;}
 .rank-row.me{border:2px solid #e63946;background:#fff8f8;}
@@ -42,11 +37,9 @@ body{font-family:'DM Sans',sans-serif;background:#f0f0f0;color:#111;}
 .rank-bar-wrap{width:100%;height:4px;background:#f0f0f0;border-radius:2px;margin-top:5px;}
 .rank-bar{height:4px;border-radius:2px;background:#e63946;}
 .diff-badge{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:500;margin-top:3px;display:inline-block;background:#fde8e8;color:#c0392b;}
-
-/* Months */
 .month-grid{display:flex;flex-direction:column;gap:7px;}
 .month-card{background:#fff;border:1px solid #e8e8e8;border-radius:10px;overflow:hidden;cursor:pointer;}
-.month-card.pending{opacity:0.5;cursor:default;}
+.month-card.pending{opacity:0.6;cursor:default;border:2px dashed #e63946;}
 .month-header{padding:12px 14px;display:flex;align-items:center;gap:10px;}
 .month-tag{font-family:'Bebas Neue',sans-serif;font-size:17px;color:#aaa;width:38px;}
 .month-winner{flex:1;font-size:13px;font-weight:500;color:#111;}
@@ -61,28 +54,31 @@ body{font-family:'DM Sans',sans-serif;background:#f0f0f0;color:#111;}
 .mdr-name.me-name{color:#e63946;font-weight:500;}
 .mdr-pts{font-size:12px;font-weight:500;color:#666;width:38px;text-align:right;}
 .mdr-fichas{font-size:12px;color:#aaa;width:58px;text-align:right;}
-
-/* Player */
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:1rem;}
+.stat-card{background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:12px;}
+.stat-label{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;}
+.stat-val{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#111;line-height:1.1;}
+.stat-sub{font-size:11px;color:#aaa;}
 .player-select-wrap{margin-bottom:1rem;}
-.player-select-wrap select{width:100%;padding:12px 14px;font-size:15px;font-weight:500;border-radius:10px;border:1px solid #ddd;background:#fff;color:#111;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23999' d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.player-select-wrap select{width:100%;padding:12px 14px;font-size:15px;font-weight:500;border-radius:10px;border:1px solid #ddd;background:#fff;color:#111;cursor:pointer;}
 .player-card{background:#fff;border:1px solid #e8e8e8;border-radius:14px;overflow:hidden;margin-bottom:1rem;}
 .player-card.is-me{border:2px solid #e63946;}
 .player-header{background:#1a1a2e;padding:1rem 1.25rem;display:flex;align-items:center;gap:14px;}
 .player-avatar{width:48px;height:48px;border-radius:50%;background:#e63946;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;flex-shrink:0;}
 .player-avatar.alt{background:#457b9d;}
-.player-hname{font-family:'Bebas Neue',sans-serif;font-size:24px;color:#fff;letter-spacing:1px;line-height:1;}
+.player-hname{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;letter-spacing:1px;line-height:1;}
 .player-hsub{font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px;}
 .player-body{padding:1rem 1.25rem;}
 .player-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:1rem;}
 .ps-card{background:#f7f7f7;border-radius:8px;padding:10px 12px;}
 .ps-label{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;}
-.ps-val{font-family:'Bebas Neue',sans-serif;font-size:24px;color:#111;line-height:1.2;}
+.ps-val{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#111;line-height:1.2;}
 .ps-sub{font-size:10px;color:#aaa;}
 .player-months-title{font-size:11px;font-weight:500;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;}
 .player-month-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #f5f5f5;}
 .player-month-row:last-child{border-bottom:none;}
 .pm-mes{font-size:12px;color:#aaa;width:34px;}
-.pm-pos{font-family:'Bebas Neue',sans-serif;font-size:16px;color:#111;width:30px;}
+.pm-pos-r{font-family:'Bebas Neue',sans-serif;font-size:16px;color:#111;width:30px;}
 .pm-pts-wrap{flex:1;}
 .pm-bar-track{height:7px;background:#f0f0f0;border-radius:3px;overflow:hidden;}
 .pm-bar-fill{height:100%;border-radius:3px;background:#e63946;}
@@ -90,8 +86,6 @@ body{font-family:'DM Sans',sans-serif;background:#f0f0f0;color:#111;}
 .pm-pts{font-size:12px;font-weight:500;color:#111;width:30px;text-align:right;}
 .pm-fichas{font-size:11px;color:#aaa;width:56px;text-align:right;}
 .pm-pending{font-size:11px;color:#ccc;font-style:italic;}
-
-/* History */
 .bar-chart{display:flex;flex-direction:column;gap:7px;}
 .bar-row{display:flex;align-items:center;gap:8px;}
 .bar-name{font-size:11px;color:#888;width:84px;text-align:right;}
@@ -101,12 +95,30 @@ body{font-family:'DM Sans',sans-serif;background:#f0f0f0;color:#111;}
 .bar-fill.other-bar{background:#457b9d;}
 .chart-wrap{background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:14px;margin-bottom:1rem;}
 .chart-label{font-size:12px;color:#888;margin-bottom:10px;font-weight:500;}
-
-.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:1rem;}
-.stat-card{background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:12px;}
-.stat-label{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.5px;}
-.stat-val{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#111;line-height:1.1;}
-.stat-sub{font-size:11px;color:#aaa;}
+.caja-card{background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:14px;margin-bottom:1rem;}
+.caja-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #f5f5f5;font-size:13px;}
+.caja-row:last-child{border-bottom:none;}
+.caja-label{color:#888;}
+.caja-val{font-family:'Bebas Neue',sans-serif;font-size:17px;}
+.caja-val.pos{color:#27ae60;}
+.caja-val.neg{color:#e63946;}
+.update-section{background:#fff;border:2px dashed #e63946;border-radius:12px;padding:1rem;margin-bottom:1rem;}
+.update-title{font-family:'Bebas Neue',sans-serif;font-size:18px;color:#e63946;letter-spacing:1px;margin-bottom:4px;}
+.update-subtitle{font-size:12px;color:#888;margin-bottom:14px;}
+.form-row-extra{display:flex;gap:8px;margin-bottom:12px;}
+.form-field{flex:1;}
+.form-label{font-size:11px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;}
+.form-input-lg{width:100%;padding:8px 10px;border:1px solid #ddd;border-radius:8px;font-size:14px;background:#f9f9f9;}
+.form-input-lg:focus{outline:none;border-color:#e63946;background:#fff;}
+.form-table{width:100%;border-collapse:collapse;margin-bottom:14px;}
+.form-table th{font-size:11px;color:#888;text-transform:uppercase;padding:5px 6px;text-align:left;border-bottom:2px solid #f0f0f0;}
+.form-table td{padding:5px 4px;border-bottom:1px solid #f5f5f5;}
+.form-table td:first-child{font-size:12px;font-weight:500;color:#111;padding-left:4px;width:90px;}
+.form-input-sm{width:100%;padding:5px 4px;border:1px solid #ddd;border-radius:6px;font-size:13px;text-align:center;background:#f9f9f9;}
+.form-input-sm:focus{outline:none;border-color:#e63946;background:#fff;}
+.btn-save{width:100%;padding:12px;background:#e63946;color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer;font-family:'Bebas Neue',sans-serif;letter-spacing:1px;}
+.btn-save:active{opacity:0.85;}
+.saved-banner{background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:10px 14px;font-size:13px;color:#2e7d32;margin-bottom:12px;display:none;}
 .note{font-size:11px;color:#aaa;text-align:center;padding:0.75rem;}
 </style>
 </head>
@@ -115,7 +127,7 @@ body{font-family:'DM Sans',sans-serif;background:#f0f0f0;color:#111;}
   <div class="hero">
     <div class="hero-title">🃏 Poker Club</div>
     <div class="hero-sub">Temporada 2025/26</div>
-    <div class="hero-badge">Quedan 2 partidas</div>
+    <div class="hero-badge" id="hero-badge">Quedan 2 partidas</div>
   </div>
   <div class="tabs">
     <div class="tab active" onclick="showTab('regular')">Regular.</div>
@@ -123,6 +135,7 @@ body{font-family:'DM Sans',sans-serif;background:#f0f0f0;color:#111;}
     <div class="tab" onclick="showTab('meses')">Meses</div>
     <div class="tab" onclick="showTab('jugador')">Jugador</div>
     <div class="tab" onclick="showTab('historial')">Historia</div>
+    <div class="tab" onclick="showTab('actualizar')">+ Añadir</div>
   </div>
 
   <div id="tab-regular" class="section active">
@@ -130,22 +143,19 @@ body{font-family:'DM Sans',sans-serif;background:#f0f0f0;color:#111;}
     <div class="podium" id="reg-podium"></div>
     <div class="ranking-list" id="reg-list"></div>
   </div>
-
   <div id="tab-fichas" class="section">
     <div class="section-title"><span>♥</span> Fichas esta temporada</div>
     <div class="podium" id="fich-podium"></div>
     <div class="ranking-list" id="fich-list"></div>
   </div>
-
   <div id="tab-meses" class="section">
     <div class="section-title"><span>♦</span> Resultados por mes</div>
     <div class="stats-grid">
-      <div class="stat-card"><div class="stat-label">Partidas jugadas</div><div class="stat-val">8</div><div class="stat-sub">de 10 en total</div></div>
-      <div class="stat-card"><div class="stat-label">Fichas en juego</div><div class="stat-val">10.158</div><div class="stat-sub">acumuladas</div></div>
+      <div class="stat-card"><div class="stat-label">Partidas jugadas</div><div class="stat-val" id="stat-jugadas">8</div><div class="stat-sub">de 10 en total</div></div>
+      <div class="stat-card"><div class="stat-label">Fichas totales</div><div class="stat-val" id="stat-fichas">11.103</div><div class="stat-sub">acumuladas</div></div>
     </div>
     <div class="month-grid" id="month-grid"></div>
   </div>
-
   <div id="tab-jugador" class="section">
     <div class="section-title"><span>♣</span> Ficha de jugador</div>
     <div class="player-select-wrap">
@@ -155,179 +165,310 @@ body{font-family:'DM Sans',sans-serif;background:#f0f0f0;color:#111;}
     </div>
     <div id="player-card-container"></div>
   </div>
-
   <div id="tab-historial" class="section">
     <div class="section-title"><span>♠</span> Fichas históricas totales</div>
     <div class="chart-wrap">
       <div class="chart-label">Todas las temporadas + actual 25/26</div>
       <div class="bar-chart" id="hist-chart"></div>
     </div>
-    <div class="section-title">Mi evolución — Pelavainas</div>
-    <div class="chart-wrap">
-      <div class="chart-label">Puntos regularidad por mes</div>
-      <div class="bar-chart" id="pelav-chart"></div>
+    <div class="section-title">💰 Caja del club</div>
+    <div class="caja-card" id="caja-card"></div>
+    <div class="note">Fichas históricas incluyen temporada 25/26</div>
+  </div>
+  <div id="tab-actualizar" class="section">
+    <div class="section-title"><span>♦</span> Añadir resultados</div>
+    <div class="saved-banner" id="saved-banner">✅ ¡Resultados de <span id="saved-mes"></span> guardados!</div>
+    <div class="update-section">
+      <div class="update-title">📝 Nueva partida</div>
+      <div class="update-subtitle">Introduce los puntos de regularidad, fichas y caja exactamente como están en el Excel</div>
+      <div class="form-row-extra">
+        <div class="form-field">
+          <div class="form-label">Mes</div>
+          <select class="form-input-lg" id="form-mes">
+            <option value="MAY">Mayo</option>
+            <option value="JUN">Junio</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <div class="form-label">Fecha</div>
+          <input type="text" class="form-input-lg" id="form-fecha" placeholder="ej: 13-may">
+        </div>
+      </div>
+      <table class="form-table">
+        <thead>
+          <tr>
+            <th>Jugador</th>
+            <th style="text-align:center">Pts Reg.</th>
+            <th style="text-align:center">Fichas</th>
+          </tr>
+        </thead>
+        <tbody id="form-tbody"></tbody>
+      </table>
+      <div class="form-row-extra">
+        <div class="form-field">
+          <div class="form-label">Saldo anterior caja (€)</div>
+          <input type="number" class="form-input-lg" id="form-saldo-ant" step="0.01" placeholder="1315.24">
+        </div>
+        <div class="form-field">
+          <div class="form-label">Movimiento caja (€)</div>
+          <input type="number" class="form-input-lg" id="form-caja-mov" step="0.01" placeholder="0.00">
+        </div>
+      </div>
+      <button class="btn-save" onclick="saveResults()">💾 GUARDAR RESULTADOS</button>
     </div>
-    <div class="note">Fichas históricas incluyen temporada 25/26 actualizada</div>
   </div>
 </div>
 
 <script>
-const NOMBRES=['S. Gourmet','Terriza','Pelavainas','Maverick','Jokerman','Yoda','Sparrow','Mentefría','Mellynator','D. Porno'];
-const ME='Pelavainas';
-const meses=[
-  {mes:'SEP',fecha:'5-sep',jugadores:[
-    {name:'S. Gourmet',pts:10,fichas:694},{name:'Mentefría',pts:9,fichas:506},
-    {name:'Jokerman',pts:8,fichas:0},{name:'Pelavainas',pts:7,fichas:0},
-    {name:'Maverick',pts:6,fichas:0},{name:'Terriza',pts:5,fichas:86},
-    {name:'Yoda',pts:4,fichas:0},{name:'D. Porno',pts:3,fichas:0},
-    {name:'Mellynator',pts:2,fichas:0},{name:'Sparrow',pts:1,fichas:0}
-  ]},
-  {mes:'OCT',fecha:'3-oct',jugadores:[
-    {name:'D. Porno',pts:10,fichas:1012},{name:'Yoda',pts:9,fichas:0},
-    {name:'Terriza',pts:8,fichas:0},{name:'Maverick',pts:7,fichas:0},
-    {name:'Jokerman',pts:6,fichas:0},{name:'S. Gourmet',pts:5,fichas:401},
-    {name:'Mellynator',pts:4,fichas:0},{name:'Sparrow',pts:3,fichas:0},
-    {name:'Mentefría',pts:2,fichas:0},{name:'Pelavainas',pts:1,fichas:0}
-  ]},
-  {mes:'NOV',fecha:'21-nov',jugadores:[
-    {name:'Sparrow',pts:10,fichas:435},{name:'Jokerman',pts:9,fichas:372},
-    {name:'Terriza',pts:8,fichas:149},{name:'Maverick',pts:7,fichas:174},
-    {name:'Pelavainas',pts:6,fichas:370},{name:'S. Gourmet',pts:5,fichas:0},
-    {name:'Mentefría',pts:4,fichas:0},{name:'Mellynator',pts:3,fichas:0},
-    {name:'Yoda',pts:2,fichas:0},{name:'D. Porno',pts:1,fichas:0}
-  ]},
-  {mes:'DIC',fecha:'12-dic',jugadores:[
-    {name:'Jokerman',pts:10,fichas:723},{name:'Maverick',pts:9,fichas:262},
-    {name:'S. Gourmet',pts:8,fichas:330},{name:'Terriza',pts:7,fichas:0},
-    {name:'Mellynator',pts:6,fichas:0},{name:'Yoda',pts:5,fichas:185},
-    {name:'Mentefría',pts:4,fichas:0},{name:'Sparrow',pts:3,fichas:0},
-    {name:'Pelavainas',pts:2,fichas:0},{name:'D. Porno',pts:1,fichas:0}
-  ]},
-  {mes:'ENE',fecha:'9-ene',jugadores:[
-    {name:'S. Gourmet',pts:10,fichas:425},{name:'Sparrow',pts:9,fichas:324},
-    {name:'Terriza',pts:8,fichas:276},{name:'Maverick',pts:7,fichas:109},
-    {name:'Yoda',pts:6,fichas:216},{name:'Mellynator',pts:5,fichas:0},
-    {name:'Mentefría',pts:4,fichas:0},{name:'Jokerman',pts:3,fichas:0},
-    {name:'Pelavainas',pts:2,fichas:0},{name:'D. Porno',pts:1,fichas:0}
-  ]},
-  {mes:'FEB',fecha:'20-feb',jugadores:[
-    {name:'Pelavainas',pts:10,fichas:598},{name:'Terriza',pts:9,fichas:278},
-    {name:'Mentefría',pts:8,fichas:207},{name:'Yoda',pts:7,fichas:102},
-    {name:'S. Gourmet',pts:6,fichas:165},{name:'Jokerman',pts:5,fichas:0},
-    {name:'Maverick',pts:4,fichas:0},{name:'Sparrow',pts:3,fichas:0},
-    {name:'Mellynator',pts:2,fichas:0},{name:'D. Porno',pts:1,fichas:0}
-  ]},
-  {mes:'MAR',fecha:'6-mar',jugadores:[
-    {name:'Pelavainas',pts:10,fichas:720},{name:'Maverick',pts:9,fichas:0},
-    {name:'Sparrow',pts:8,fichas:185},{name:'Mellynator',pts:7,fichas:191},
-    {name:'S. Gourmet',pts:6,fichas:255},{name:'Mentefría',pts:5,fichas:0},
-    {name:'Yoda',pts:4,fichas:0},{name:'Jokerman',pts:3,fichas:0},
-    {name:'Terriza',pts:2,fichas:0},{name:'D. Porno',pts:1,fichas:0}
-  ]},
-  {mes:'ABR',fecha:'10-abr',jugadores:[
-    {name:'Pelavainas',pts:10,fichas:408},{name:'Terriza',pts:9,fichas:406},
-    {name:'D. Porno',pts:8,fichas:353},{name:'Maverick',pts:7,fichas:186},
-    {name:'Sparrow',pts:6,fichas:0},{name:'Mentefría',pts:5,fichas:0},
-    {name:'Jokerman',pts:4,fichas:0},{name:'S. Gourmet',pts:3,fichas:0},
-    {name:'Mellynator',pts:2,fichas:0},{name:'Yoda',pts:1,fichas:0}
-  ]},
-  {mes:'MAY',fecha:'Mayo',pending:true,jugadores:[]},
-  {mes:'JUN',fecha:'Junio',pending:true,jugadores:[]}
+// ============================================================
+// DATOS EXACTOS DEL EXCEL — NO SE CALCULA NADA, COPIA LITERAL
+// ============================================================
+
+// REGULARIDAD: puntos tal cual están en el Excel por mes
+const regData = {
+  'GOURMET':    {SEP:10, OCT:9,  NOV:2,  DIC:9,  ENE:10, FEB:7,  MAR:9,  ABR:8,  MAY:0, JUN:0, TOTAL:64},
+  'TERRIZA':    {SEP:5,  OCT:8,  NOV:6,  DIC:3,  ENE:8,  FEB:9,  MAR:6,  ABR:9,  MAY:0, JUN:0, TOTAL:54},
+  'PELAVAINAS': {SEP:4,  OCT:1,  NOV:8,  DIC:4,  ENE:3,  FEB:10, MAR:10, ABR:10, MAY:0, JUN:0, TOTAL:50},
+  'MAVERICK':   {SEP:7,  OCT:3,  NOV:7,  DIC:8,  ENE:6,  FEB:5,  MAR:2,  ABR:7,  MAY:0, JUN:0, TOTAL:45},
+  'JOKERMAN':   {SEP:8,  OCT:5,  NOV:9,  DIC:10, ENE:2,  FEB:3,  MAR:3,  ABR:4,  MAY:0, JUN:0, TOTAL:44},
+  'YODA':       {SEP:6,  OCT:7,  NOV:3,  DIC:7,  ENE:7,  FEB:6,  MAR:4,  ABR:3,  MAY:0, JUN:0, TOTAL:43},
+  'SPARROW':    {SEP:0,  OCT:6,  NOV:10, DIC:2,  ENE:9,  FEB:2,  MAR:7,  ABR:6,  MAY:0, JUN:0, TOTAL:42},
+  'MENTEFRIA':  {SEP:9,  OCT:2,  NOV:4,  DIC:6,  ENE:4,  FEB:8,  MAR:5,  ABR:2,  MAY:0, JUN:0, TOTAL:40},
+  'MELLYNATOR': {SEP:3,  OCT:4,  NOV:1,  DIC:5,  ENE:5,  FEB:4,  MAR:8,  ABR:1,  MAY:0, JUN:0, TOTAL:31},
+  'D. PORNO':   {SEP:0,  OCT:10, NOV:5,  DIC:1,  ENE:0,  FEB:0,  MAR:0,  ABR:8,  MAY:0, JUN:0, TOTAL:24},
+};
+
+// FICHAS: exactas del Excel
+const fichData = {
+  'GOURMET':    {SEP:694, OCT:401, NOV:0,   DIC:330, ENE:425, FEB:165, MAR:255, ABR:0,   MAY:0, JUN:0, TOTAL:2270},
+  'PELAVAINAS': {SEP:0,   OCT:0,   NOV:370, DIC:0,   ENE:0,   FEB:598, MAR:720, ABR:408, MAY:0, JUN:0, TOTAL:2096},
+  'D. PORNO':   {SEP:0,   OCT:1012,NOV:0,   DIC:0,   ENE:0,   FEB:0,   MAR:0,   ABR:353, MAY:0, JUN:0, TOTAL:1365},
+  'TERRIZA':    {SEP:0,   OCT:86,  NOV:149, DIC:0,   ENE:276, FEB:278, MAR:0,   ABR:406, MAY:0, JUN:0, TOTAL:1195},
+  'JOKERMAN':   {SEP:0,   OCT:0,   NOV:372, DIC:723, ENE:0,   FEB:0,   MAR:0,   ABR:0,   MAY:0, JUN:0, TOTAL:1095},
+  'SPARROW':    {SEP:0,   OCT:0,   NOV:435, DIC:0,   ENE:324, FEB:0,   MAR:185, ABR:0,   MAY:0, JUN:0, TOTAL:944},
+  'MAVERICK':   {SEP:0,   OCT:0,   NOV:174, DIC:262, ENE:109, FEB:0,   MAR:0,   ABR:186, MAY:0, JUN:0, TOTAL:731},
+  'MENTEFRIA':  {SEP:506, OCT:0,   NOV:0,   DIC:0,   ENE:0,   FEB:207, MAR:0,   ABR:0,   MAY:0, JUN:0, TOTAL:713},
+  'YODA':       {SEP:0,   OCT:0,   NOV:0,   DIC:185, ENE:216, FEB:102, MAR:0,   ABR:0,   MAY:0, JUN:0, TOTAL:503},
+  'MELLYNATOR': {SEP:0,   OCT:0,   NOV:0,   DIC:0,   ENE:0,   FEB:0,   MAR:191, ABR:0,   MAY:0, JUN:0, TOTAL:191},
+};
+
+// CAJA: exacta del Excel
+let cajaData = [
+  {mes:'SEP', saldoAnt:950.30,  mov:8.50,  saldoAct:958.80},
+  {mes:'OCT', saldoAnt:958.80,  mov:70.00, saldoAct:1028.80},
+  {mes:'NOV', saldoAnt:1028.80, mov:90.00, saldoAct:1118.80},
+  {mes:'DIC', saldoAnt:1118.80, mov:51.44, saldoAct:1170.24},
+  {mes:'ENE', saldoAnt:1170.24, mov:-26.00,saldoAct:1144.24},
+  {mes:'FEB', saldoAnt:1144.24, mov:74.00, saldoAct:1218.24},
+  {mes:'MAR', saldoAnt:1218.24, mov:97.00, saldoAct:1315.24},
+  {mes:'ABR', saldoAnt:1315.24, mov:0,     saldoAct:1315.24},
 ];
-const historicoPrev={'Mentefría':10217,'Pelavainas':7294,'Terriza':7292,'Maverick':7262,'Sparrow':7019,'S. Gourmet':6724,'Mellynator':6261,'Jokerman':5010,'Yoda':4116,'D. Porno':3704};
+
+// HISTÓRICO temporadas anteriores
+const historicoPrev = {
+  'MENTEFRIA':10217,'PELAVAINAS':7294,'TERRIZA':7292,'MAVERICK':7262,
+  'SPARROW':7019,'GOURMET':6724,'MELLYNATOR':6261,'JOKERMAN':5010,
+  'YODA':4116,'D. PORNO':3704
+};
+
+const NOMBRES = ['GOURMET','TERRIZA','PELAVAINAS','MAVERICK','JOKERMAN','YODA','SPARROW','MENTEFRIA','MELLYNATOR','D. PORNO'];
+const ME = 'PELAVAINAS';
+const MESES_COL = ['SEP','OCT','NOV','DIC','ENE','FEB','MAR','ABR','MAY','JUN'];
+let pendientes = ['MAY','JUN'];
 
 function showTab(id){
-  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',['regular','fichas','meses','jugador','historial'][i]===id));
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',['regular','fichas','meses','jugador','historial','actualizar'][i]===id));
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
   window.scrollTo(0,0);
 }
 
-function calcReg(){
-  const T={'S. Gourmet':61,'Terriza':54,'Pelavainas':50,'Maverick':45,'Jokerman':44,'Yoda':43,'Sparrow':42,'Mentefría':40,'Mellynator':31,'D. Porno':24};
-  return NOMBRES.map(n=>({name:n,pts:T[n]||0})).sort((a,b)=>b.pts-a.pts);
-}
-function calcFich(){
-  return NOMBRES.map(n=>{let t=0;meses.filter(m=>!m.pending).forEach(m=>{const j=m.jugadores.find(x=>x.name===n);if(j)t+=j.fichas;});return{name:n,total:t};}).sort((a,b)=>b.total-a.total);
-}
+function getRegTotal(n){ return Object.entries(regData[n]).filter(([k])=>k!=='TOTAL').reduce((s,[,v])=>s+v,0); }
+function getFichTotal(n){ return Object.entries(fichData[n]).filter(([k])=>k!=='TOTAL').reduce((s,[,v])=>s+v,0); }
 
-function buildPodium(id,data,valKey){
+function sortedReg(){ return NOMBRES.map(n=>({name:n,pts:getRegTotal(n)})).sort((a,b)=>b.pts-a.pts); }
+function sortedFich(){ return NOMBRES.map(n=>({name:n,total:getFichTotal(n)})).sort((a,b)=>b.total-a.total); }
+
+function buildPodium(id, data, valKey){
   const t=data.slice(0,3);
-  const order=[t[1],t[0],t[2]],heights=[70,92,56],crowns=['🥈','👑','🥉'],colors=['#457b9d','#e63946','#6b705c'],poses=[2,1,3];
+  const order=[t[1],t[0],t[2]], heights=[70,92,56], crowns=['🥈','👑','🥉'], colors=['#457b9d','#e63946','#6b705c'], poses=[2,1,3];
   document.getElementById(id).innerHTML=order.map((p,i)=>`<div class="pod"><div style="font-size:18px">${crowns[i]}</div><div class="pod-bar" style="height:${heights[i]}px;background:${colors[i]}">${p[valKey].toLocaleString('es')}</div><div class="pod-name">${p.name}</div><div class="pod-pos">${poses[i]}º</div></div>`).join('');
 }
 
 function buildRegList(){
-  const data=calcReg(),max=data[0].pts;
+  const data=sortedReg(), max=data[0].pts;
   buildPodium('reg-podium',data,'pts');
-  document.getElementById('reg-list').innerHTML=data.map((p,i)=>`<div class="rank-row ${p.name===ME?'me':''}"><div class="rank-num ${i===0?'top1':''}">${i+1}</div><div style="flex:1"><div class="rank-name">${p.name}${p.name===ME?'<span class="me-tag">← tú</span>':''}</div><div class="rank-bar-wrap"><div class="rank-bar" style="width:${Math.round(p.pts/max*100)}%"></div></div></div><div style="text-align:right"><div class="rank-pts">${p.pts}</div><div class="rank-detail">pts</div></div></div>`).join('');
+  document.getElementById('reg-list').innerHTML=data.map((p,i)=>`
+    <div class="rank-row ${p.name===ME?'me':''}">
+      <div class="rank-num ${i===0?'top1':''}">${i+1}</div>
+      <div style="flex:1">
+        <div class="rank-name">${p.name}${p.name===ME?'<span class="me-tag">← tú</span>':''}</div>
+        <div class="rank-bar-wrap"><div class="rank-bar" style="width:${Math.round(p.pts/max*100)}%"></div></div>
+      </div>
+      <div style="text-align:right"><div class="rank-pts">${p.pts}</div><div class="rank-detail">pts</div></div>
+    </div>`).join('');
 }
 
 function buildFichList(){
-  const data=calcFich(),max=data[0].total;
+  const data=sortedFich(), max=data[0].total;
   buildPodium('fich-podium',data,'total');
   document.getElementById('fich-list').innerHTML=data.map((p,i)=>{
-    const prev=i>0?data[i-1].total:null,diff=prev!==null?p.total-prev:null;
-    return `<div class="rank-row ${p.name===ME?'me':''}"><div class="rank-num ${i===0?'top1':''}">${i+1}</div><div style="flex:1"><div class="rank-name">${p.name}${p.name===ME?'<span class="me-tag">← tú</span>':''}</div><div class="rank-bar-wrap"><div class="rank-bar" style="width:${Math.round(p.total/max*100)}%"></div></div>${diff!==null?`<div class="diff-badge">${diff.toLocaleString('es')} vs ${data[i-1].name}</div>`:''}</div><div style="text-align:right"><div class="rank-pts">${p.total.toLocaleString('es')}</div><div class="rank-detail">fichas</div></div></div>`;
+    const prev=i>0?data[i-1].total:null, diff=prev!==null?p.total-prev:null;
+    return`<div class="rank-row ${p.name===ME?'me':''}">
+      <div class="rank-num ${i===0?'top1':''}">${i+1}</div>
+      <div style="flex:1">
+        <div class="rank-name">${p.name}${p.name===ME?'<span class="me-tag">← tú</span>':''}</div>
+        <div class="rank-bar-wrap"><div class="rank-bar" style="width:${Math.round(p.total/max*100)}%"></div></div>
+        ${diff!==null?`<div class="diff-badge">${diff.toLocaleString('es')} vs ${data[i-1].name}</div>`:''}
+      </div>
+      <div style="text-align:right"><div class="rank-pts">${p.total.toLocaleString('es')}</div><div class="rank-detail">fichas</div></div>
+    </div>`;
   }).join('');
 }
 
 function toggleMonth(i){
-  const b=document.getElementById('mb-'+i),a=document.getElementById('ma-'+i);
+  const b=document.getElementById('mb-'+i), a=document.getElementById('ma-'+i);
   if(b){b.classList.toggle('open');a.classList.toggle('open');}
 }
 
 function buildMonths(){
-  document.getElementById('month-grid').innerHTML=meses.map((m,i)=>{
-    if(m.pending)return`<div class="month-card pending"><div class="month-header"><div class="month-tag">${m.mes}</div><div style="flex:1;font-size:12px;color:#ccc;font-style:italic">Pendiente</div></div></div>`;
-    const w=m.jugadores[0],tf=m.jugadores.reduce((s,j)=>s+j.fichas,0);
-    return`<div class="month-card" onclick="toggleMonth(${i})"><div class="month-header"><div class="month-tag">${m.mes}</div><div class="month-winner">🏆 ${w.name}</div><div class="month-fichas-sum">${tf.toLocaleString('es')}f</div><div class="month-arrow" id="ma-${i}">▼</div></div><div class="month-body" id="mb-${i}">${m.jugadores.map((j,ji)=>`<div class="month-detail-row"><div class="mdr-pos">${ji+1}</div><div class="mdr-name ${j.name===ME?'me-name':''}">${j.name}</div><div class="mdr-pts">${j.pts} pts</div><div class="mdr-fichas">${j.fichas>0?j.fichas.toLocaleString('es')+'f':'-'}</div></div>`).join('')}</div></div>`;
-  }).join('');
-}
+  const played = MESES_COL.filter(m=>!pendientes.includes(m)).length;
+  const totalF = NOMBRES.reduce((s,n)=>s+getFichTotal(n),0);
+  document.getElementById('stat-jugadas').textContent=played;
+  document.getElementById('stat-fichas').textContent=totalF.toLocaleString('es');
+  document.getElementById('hero-badge').textContent=`Quedan ${pendientes.length} partida${pendientes.length!==1?'s':''}`;
 
-function getPlayerData(name){
-  let totalPts=0,totalFichas=0,wins=0;
-  const porMes=meses.map(m=>{
-    if(m.pending)return{mes:m.mes,pending:true};
-    const j=m.jugadores.find(x=>x.name===name);
-    if(!j)return{mes:m.mes,pos:'-',pts:0,fichas:0};
-    const pos=m.jugadores.indexOf(j)+1;
-    totalPts+=j.pts;totalFichas+=j.fichas;
-    if(pos===1)wins++;
-    return{mes:m.mes,pos,pts:j.pts,fichas:j.fichas};
-  });
-  const regRank=calcReg().findIndex(x=>x.name===name)+1;
-  const fichRank=calcFich().findIndex(x=>x.name===name)+1;
-  const histTotal=(historicoPrev[name]||0)+totalFichas;
-  return{totalPts,totalFichas,wins,porMes,regRank,fichRank,histTotal};
+  document.getElementById('month-grid').innerHTML=MESES_COL.map((mes,i)=>{
+    if(pendientes.includes(mes)) return`<div class="month-card pending"><div class="month-header"><div class="month-tag">${mes}</div><div style="flex:1;font-size:12px;color:#e63946;font-style:italic;font-weight:500">Pendiente — pulsa "+ Añadir"</div></div></div>`;
+    // ganador = jugador con más pts de regularidad ese mes
+    const ganador = NOMBRES.map(n=>({name:n,pts:regData[n][mes],fichas:fichData[n][mes]})).sort((a,b)=>b.pts-a.pts);
+    const totalMesFichas = ganador.reduce((s,j)=>s+j.fichas,0);
+    return`<div class="month-card" onclick="toggleMonth(${i})">
+      <div class="month-header">
+        <div class="month-tag">${mes}</div>
+        <div class="month-winner">🏆 ${ganador[0].name}</div>
+        <div class="month-fichas-sum">${totalMesFichas.toLocaleString('es')}f</div>
+        <div class="month-arrow" id="ma-${i}">▼</div>
+      </div>
+      <div class="month-body" id="mb-${i}">
+        ${ganador.map((j,ji)=>`<div class="month-detail-row">
+          <div class="mdr-pos">${ji+1}</div>
+          <div class="mdr-name ${j.name===ME?'me-name':''}">${j.name}</div>
+          <div class="mdr-pts">${j.pts} pts</div>
+          <div class="mdr-fichas">${j.fichas>0?j.fichas.toLocaleString('es')+'f':'-'}</div>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }).join('');
 }
 
 function buildPlayerCard(){
   const name=document.getElementById('player-select').value;
   const cont=document.getElementById('player-card-container');
   if(!name){cont.innerHTML='';return;}
-  const d=getPlayerData(name),isMe=name===ME;
-  const initials=name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
-  const rows=d.porMes.map(m=>{
-    if(m.pending)return`<div class="player-month-row"><div class="pm-mes">${m.mes}</div><div class="pm-pos" style="color:#ccc">-</div><div class="pm-pts-wrap"><span class="pm-pending">pendiente</span></div><div class="pm-pts">-</div><div class="pm-fichas">-</div></div>`;
-    return`<div class="player-month-row"><div class="pm-mes">${m.mes}</div><div class="pm-pos">${m.pos}º</div><div class="pm-pts-wrap"><div class="pm-bar-track"><div class="pm-bar-fill ${isMe?'':'alt'}" style="width:${Math.round(m.pts/10*100)}%"></div></div></div><div class="pm-pts">${m.pts}pt</div><div class="pm-fichas">${m.fichas>0?m.fichas.toLocaleString('es')+'f':'-'}</div></div>`;
+  const isMe=name===ME;
+  const regTotal=getRegTotal(name);
+  const fichTotal=getFichTotal(name);
+  const histTotal=(historicoPrev[name]||0)+fichTotal;
+  const regRank=sortedReg().findIndex(x=>x.name===name)+1;
+  const fichRank=sortedFich().findIndex(x=>x.name===name)+1;
+  const wins=MESES_COL.filter(m=>!pendientes.includes(m)&&NOMBRES.map(n=>({name:n,pts:regData[n][m]})).sort((a,b)=>b.pts-a.pts)[0].name===name).length;
+  const rows=MESES_COL.map(mes=>{
+    if(pendientes.includes(mes)) return`<div class="player-month-row"><div class="pm-mes">${mes}</div><div class="pm-pos-r" style="color:#ccc">-</div><div class="pm-pts-wrap"><span class="pm-pending">pendiente</span></div><div class="pm-pts">-</div><div class="pm-fichas">-</div></div>`;
+    const pts=regData[name][mes], fich=fichData[name][mes];
+    return`<div class="player-month-row">
+      <div class="pm-mes">${mes}</div>
+      <div class="pm-pos-r">${pts}pt</div>
+      <div class="pm-pts-wrap"><div class="pm-bar-track"><div class="pm-bar-fill ${isMe?'':'alt'}" style="width:${Math.round(pts/10*100)}%"></div></div></div>
+      <div class="pm-pts"></div>
+      <div class="pm-fichas">${fich>0?fich.toLocaleString('es')+'f':'-'}</div>
+    </div>`;
   }).join('');
-  cont.innerHTML=`<div class="player-card ${isMe?'is-me':''}"><div class="player-header"><div class="player-avatar ${isMe?'':'alt'}">${initials}</div><div><div class="player-hname">${name}${isMe?'<span style="font-size:12px;color:#e63946;margin-left:8px;font-family:DM Sans,sans-serif;font-weight:500">← tú</span>':''}</div><div class="player-hsub">${d.wins} victoria${d.wins!==1?'s':''} esta temporada</div></div></div><div class="player-body"><div class="player-stats"><div class="ps-card"><div class="ps-label">Regularidad</div><div class="ps-val">${d.totalPts} pts</div><div class="ps-sub">${d.regRank}º clasificado</div></div><div class="ps-card"><div class="ps-label">Fichas temp.</div><div class="ps-val">${d.totalFichas.toLocaleString('es')}</div><div class="ps-sub">${d.fichRank}º clasificado</div></div><div class="ps-card"><div class="ps-label">Fichas históricas</div><div class="ps-val">${d.histTotal.toLocaleString('es')}</div><div class="ps-sub">todas las temporadas</div></div><div class="ps-card"><div class="ps-label">Victorias</div><div class="ps-val">${d.wins}</div><div class="ps-sub">de 8 partidas</div></div></div><div class="player-months-title">Mes a mes</div>${rows}</div></div>`;
+  cont.innerHTML=`<div class="player-card ${isMe?'is-me':''}">
+    <div class="player-header">
+      <div class="player-avatar ${isMe?'':'alt'}">${name.slice(0,2)}</div>
+      <div>
+        <div class="player-hname">${name}${isMe?'<span style="font-size:11px;color:#e63946;margin-left:8px;font-family:DM Sans">← tú</span>':''}</div>
+        <div class="player-hsub">${wins} victoria${wins!==1?'s':''} esta temporada</div>
+      </div>
+    </div>
+    <div class="player-body">
+      <div class="player-stats">
+        <div class="ps-card"><div class="ps-label">Regularidad</div><div class="ps-val">${regTotal} pts</div><div class="ps-sub">${regRank}º clasificado</div></div>
+        <div class="ps-card"><div class="ps-label">Fichas temp.</div><div class="ps-val">${fichTotal.toLocaleString('es')}</div><div class="ps-sub">${fichRank}º clasificado</div></div>
+        <div class="ps-card"><div class="ps-label">Fichas históricas</div><div class="ps-val">${histTotal.toLocaleString('es')}</div><div class="ps-sub">todas las temporadas</div></div>
+        <div class="ps-card"><div class="ps-label">Victorias</div><div class="ps-val">${wins}</div><div class="ps-sub">de ${MESES_COL.filter(m=>!pendientes.includes(m)).length} partidas</div></div>
+      </div>
+      <div class="player-months-title">Mes a mes — regularidad y fichas</div>
+      ${rows}
+    </div>
+  </div>`;
 }
 
 function buildHistChart(){
-  const data=NOMBRES.map(n=>{let cur=0;meses.filter(m=>!m.pending).forEach(m=>{const j=m.jugadores.find(x=>x.name===n);if(j)cur+=j.fichas;});return{name:n,total:(historicoPrev[n]||0)+cur};}).sort((a,b)=>b.total-a.total);
+  const data=NOMBRES.map(n=>({name:n,total:(historicoPrev[n]||0)+getFichTotal(n)})).sort((a,b)=>b.total-a.total);
   const max=data[0].total;
   document.getElementById('hist-chart').innerHTML=data.map(p=>`<div class="bar-row"><div class="bar-name">${p.name}</div><div class="bar-track"><div class="bar-fill ${p.name===ME?'me-bar':'other-bar'}" style="width:${Math.round(p.total/max*100)}%">${p.total.toLocaleString('es')}</div></div></div>`).join('');
 }
 
-function buildPelavChart(){
-  document.getElementById('pelav-chart').innerHTML=meses.map(m=>{
-    if(m.pending)return`<div class="bar-row"><div class="bar-name">${m.mes}</div><div class="bar-track"><div class="bar-fill me-bar" style="width:0%"></div></div></div>`;
-    const j=m.jugadores.find(x=>x.name===ME);
-    const pts=j?j.pts:0;
-    return`<div class="bar-row"><div class="bar-name">${m.mes}</div><div class="bar-track"><div class="bar-fill me-bar" style="width:${Math.round(pts/10*100)}%">${pts}</div></div></div>`;
-  }).join('');
+function buildCaja(){
+  const ultimo=cajaData[cajaData.length-1];
+  document.getElementById('caja-card').innerHTML=`
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:1px;margin-bottom:10px;color:#111;">Saldo actual: <span style="color:#27ae60">${ultimo.saldoAct.toFixed(2)} €</span></div>
+    ${cajaData.map(c=>`<div class="caja-row">
+      <span class="caja-label">${c.mes}</span>
+      <span style="font-size:12px;color:#888">${c.saldoAnt.toFixed(2)} <span style="color:${c.mov>=0?'#27ae60':'#e63946'}">${c.mov>=0?'+':''}${c.mov.toFixed(2)}</span> → <strong>${c.saldoAct.toFixed(2)} €</strong></span>
+    </div>`).join('')}`;
+}
+
+function buildFormTable(){
+  document.getElementById('form-tbody').innerHTML=NOMBRES.map(n=>`
+    <tr>
+      <td>${n}</td>
+      <td><input class="form-input-sm" type="number" id="reg-${n}" min="0" max="10" placeholder="-"></td>
+      <td><input class="form-input-sm" type="number" id="fich-${n}" min="0" placeholder="0"></td>
+    </tr>`).join('');
+}
+
+function saveResults(){
+  const mes=document.getElementById('form-mes').value;
+  const saldoAnt=parseFloat(document.getElementById('form-saldo-ant').value)||0;
+  const cajaMov=parseFloat(document.getElementById('form-caja-mov').value)||0;
+
+  // Guardar puntos de regularidad y fichas tal cual se han introducido
+  NOMBRES.forEach(n=>{
+    const reg=parseInt(document.getElementById('reg-'+n).value)||0;
+    const fich=parseInt(document.getElementById('fich-'+n).value)||0;
+    regData[n][mes]=reg;
+    fichData[n][mes]=fich;
+    regData[n].TOTAL=Object.entries(regData[n]).filter(([k])=>k!=='TOTAL').reduce((s,[,v])=>s+v,0);
+    fichData[n].TOTAL=Object.entries(fichData[n]).filter(([k])=>k!=='TOTAL').reduce((s,[,v])=>s+v,0);
+  });
+
+  // Actualizar caja
+  cajaData.push({mes, saldoAnt, mov:cajaMov, saldoAct:saldoAnt+cajaMov});
+
+  // Quitar de pendientes
+  pendientes=pendientes.filter(m=>m!==mes);
+
+  // Quitar opción del select
+  const sel=document.getElementById('form-mes');
+  for(let i=sel.options.length-1;i>=0;i--){if(sel.options[i].value===mes)sel.remove(i);}
+
+  // Refrescar todo
+  buildRegList(); buildFichList(); buildMonths(); buildHistChart(); buildCaja();
+  if(document.getElementById('player-select').value) buildPlayerCard();
+
+  // Banner
+  document.getElementById('saved-mes').textContent=mes;
+  const b=document.getElementById('saved-banner');
+  b.style.display='block';
+  setTimeout(()=>b.style.display='none',3000);
+
+  // Limpiar
+  NOMBRES.forEach(n=>{document.getElementById('reg-'+n).value='';document.getElementById('fich-'+n).value='';});
+  document.getElementById('form-saldo-ant').value='';
+  document.getElementById('form-caja-mov').value='';
 }
 
 function buildSelect(){
@@ -335,7 +476,7 @@ function buildSelect(){
   NOMBRES.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n+(n===ME?' (tú)':'');sel.appendChild(o);});
 }
 
-buildSelect();buildRegList();buildFichList();buildMonths();buildHistChart();buildPelavChart();
+buildSelect(); buildRegList(); buildFichList(); buildMonths(); buildHistChart(); buildCaja(); buildFormTable();
 </script>
 </body>
 </html>
