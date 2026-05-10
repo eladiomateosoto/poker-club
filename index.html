@@ -127,7 +127,7 @@ body{font-family:'DM Sans',sans-serif;background:#f0f0f0;color:#111;}
   <div class="hero">
     <div class="hero-title">🃏 Poker Club</div>
     <div class="hero-sub">Temporada 2025/26</div>
-    <div class="hero-badge" id="hero-badge">Quedan 2 partidas</div>
+    <div class="hero-badge" id="hero-badge">Queda 1 partida</div>
   </div>
   <div class="tabs">
     <div class="tab active" onclick="showTab('regular')">Regular.</div>
@@ -226,30 +226,30 @@ body{font-family:'DM Sans',sans-serif;background:#f0f0f0;color:#111;}
 
 // REGULARIDAD: puntos tal cual están en el Excel por mes
 const regData = {
-  'GOURMET':    {SEP:10, OCT:9,  NOV:2,  DIC:9,  ENE:10, FEB:7,  MAR:9,  ABR:8,  MAY:0, JUN:0, TOTAL:64},
-  'TERRIZA':    {SEP:5,  OCT:8,  NOV:6,  DIC:3,  ENE:8,  FEB:9,  MAR:6,  ABR:9,  MAY:0, JUN:0, TOTAL:54},
-  'PELAVAINAS': {SEP:4,  OCT:1,  NOV:8,  DIC:4,  ENE:3,  FEB:10, MAR:10, ABR:10, MAY:0, JUN:0, TOTAL:50},
-  'MAVERICK':   {SEP:7,  OCT:3,  NOV:7,  DIC:8,  ENE:6,  FEB:5,  MAR:2,  ABR:7,  MAY:0, JUN:0, TOTAL:45},
-  'JOKERMAN':   {SEP:8,  OCT:5,  NOV:9,  DIC:10, ENE:2,  FEB:3,  MAR:3,  ABR:4,  MAY:0, JUN:0, TOTAL:44},
-  'YODA':       {SEP:6,  OCT:7,  NOV:3,  DIC:7,  ENE:7,  FEB:6,  MAR:4,  ABR:3,  MAY:0, JUN:0, TOTAL:43},
-  'SPARROW':    {SEP:0,  OCT:6,  NOV:10, DIC:2,  ENE:9,  FEB:2,  MAR:7,  ABR:6,  MAY:0, JUN:0, TOTAL:42},
-  'MENTEFRIA':  {SEP:9,  OCT:2,  NOV:4,  DIC:6,  ENE:4,  FEB:8,  MAR:5,  ABR:2,  MAY:0, JUN:0, TOTAL:40},
-  'MELLYNATOR': {SEP:3,  OCT:4,  NOV:1,  DIC:5,  ENE:5,  FEB:4,  MAR:8,  ABR:1,  MAY:0, JUN:0, TOTAL:31},
-  'D. PORNO':   {SEP:0,  OCT:10, NOV:5,  DIC:1,  ENE:0,  FEB:0,  MAR:0,  ABR:8,  MAY:0, JUN:0, TOTAL:24},
+  'GOURMET':    {SEP:10, OCT:9,  NOV:2,  DIC:9,  ENE:10, FEB:7,  MAR:9,  ABR:8,  MAY:2,  JUN:0, TOTAL:66},
+  'TERRIZA':    {SEP:5,  OCT:8,  NOV:6,  DIC:3,  ENE:8,  FEB:9,  MAR:6,  ABR:9,  MAY:5,  JUN:0, TOTAL:59},
+  'PELAVAINAS': {SEP:4,  OCT:1,  NOV:8,  DIC:4,  ENE:3,  FEB:10, MAR:10, ABR:10, MAY:9,  JUN:0, TOTAL:59},
+  'MAVERICK':   {SEP:7,  OCT:3,  NOV:7,  DIC:8,  ENE:6,  FEB:5,  MAR:2,  ABR:7,  MAY:8,  JUN:0, TOTAL:53},
+  'JOKERMAN':   {SEP:8,  OCT:5,  NOV:9,  DIC:10, ENE:2,  FEB:3,  MAR:3,  ABR:4,  MAY:4,  JUN:0, TOTAL:48},
+  'YODA':       {SEP:6,  OCT:7,  NOV:3,  DIC:7,  ENE:7,  FEB:6,  MAR:4,  ABR:3,  MAY:6,  JUN:0, TOTAL:49},
+  'SPARROW':    {SEP:0,  OCT:6,  NOV:10, DIC:2,  ENE:9,  FEB:2,  MAR:7,  ABR:6,  MAY:3,  JUN:0, TOTAL:45},
+  'MENTEFRIA':  {SEP:9,  OCT:2,  NOV:4,  DIC:6,  ENE:4,  FEB:8,  MAR:5,  ABR:2,  MAY:10, JUN:0, TOTAL:50},
+  'MELLYNATOR': {SEP:3,  OCT:4,  NOV:1,  DIC:5,  ENE:5,  FEB:4,  MAR:8,  ABR:1,  MAY:7,  JUN:0, TOTAL:38},
+  'D. PORNO':   {SEP:0,  OCT:10, NOV:5,  DIC:1,  ENE:0,  FEB:0,  MAR:0,  ABR:8,  MAY:0,  JUN:0, TOTAL:24},
 };
 
 // FICHAS: exactas del Excel
 const fichData = {
-  'GOURMET':    {SEP:694, OCT:401, NOV:0,   DIC:330, ENE:425, FEB:165, MAR:255, ABR:0,   MAY:0, JUN:0, TOTAL:2270},
-  'PELAVAINAS': {SEP:0,   OCT:0,   NOV:370, DIC:0,   ENE:0,   FEB:598, MAR:720, ABR:408, MAY:0, JUN:0, TOTAL:2096},
-  'D. PORNO':   {SEP:0,   OCT:1012,NOV:0,   DIC:0,   ENE:0,   FEB:0,   MAR:0,   ABR:353, MAY:0, JUN:0, TOTAL:1365},
-  'TERRIZA':    {SEP:0,   OCT:86,  NOV:149, DIC:0,   ENE:276, FEB:278, MAR:0,   ABR:406, MAY:0, JUN:0, TOTAL:1195},
-  'JOKERMAN':   {SEP:0,   OCT:0,   NOV:372, DIC:723, ENE:0,   FEB:0,   MAR:0,   ABR:0,   MAY:0, JUN:0, TOTAL:1095},
-  'SPARROW':    {SEP:0,   OCT:0,   NOV:435, DIC:0,   ENE:324, FEB:0,   MAR:185, ABR:0,   MAY:0, JUN:0, TOTAL:944},
-  'MAVERICK':   {SEP:0,   OCT:0,   NOV:174, DIC:262, ENE:109, FEB:0,   MAR:0,   ABR:186, MAY:0, JUN:0, TOTAL:731},
-  'MENTEFRIA':  {SEP:506, OCT:0,   NOV:0,   DIC:0,   ENE:0,   FEB:207, MAR:0,   ABR:0,   MAY:0, JUN:0, TOTAL:713},
-  'YODA':       {SEP:0,   OCT:0,   NOV:0,   DIC:185, ENE:216, FEB:102, MAR:0,   ABR:0,   MAY:0, JUN:0, TOTAL:503},
-  'MELLYNATOR': {SEP:0,   OCT:0,   NOV:0,   DIC:0,   ENE:0,   FEB:0,   MAR:191, ABR:0,   MAY:0, JUN:0, TOTAL:191},
+  'GOURMET':    {SEP:694, OCT:401, NOV:0,   DIC:330, ENE:425, FEB:165, MAR:255, ABR:0,   MAY:0,   JUN:0, TOTAL:2270},
+  'PELAVAINAS': {SEP:0,   OCT:0,   NOV:370, DIC:0,   ENE:0,   FEB:598, MAR:720, ABR:408, MAY:351, JUN:0, TOTAL:2447},
+  'D. PORNO':   {SEP:0,   OCT:1012,NOV:0,   DIC:0,   ENE:0,   FEB:0,   MAR:0,   ABR:353, MAY:0,   JUN:0, TOTAL:1365},
+  'TERRIZA':    {SEP:0,   OCT:86,  NOV:149, DIC:0,   ENE:276, FEB:278, MAR:0,   ABR:406, MAY:0,   JUN:0, TOTAL:1195},
+  'JOKERMAN':   {SEP:0,   OCT:0,   NOV:372, DIC:723, ENE:0,   FEB:0,   MAR:0,   ABR:0,   MAY:0,   JUN:0, TOTAL:1095},
+  'SPARROW':    {SEP:0,   OCT:0,   NOV:435, DIC:0,   ENE:324, FEB:0,   MAR:185, ABR:0,   MAY:0,   JUN:0, TOTAL:944},
+  'MAVERICK':   {SEP:0,   OCT:0,   NOV:174, DIC:262, ENE:109, FEB:0,   MAR:0,   ABR:186, MAY:317, JUN:0, TOTAL:1048},
+  'MENTEFRIA':  {SEP:506, OCT:0,   NOV:0,   DIC:0,   ENE:0,   FEB:207, MAR:0,   ABR:0,   MAY:379, JUN:0, TOTAL:1092},
+  'YODA':       {SEP:0,   OCT:0,   NOV:0,   DIC:185, ENE:216, FEB:102, MAR:0,   ABR:0,   MAY:98,  JUN:0, TOTAL:601},
+  'MELLYNATOR': {SEP:0,   OCT:0,   NOV:0,   DIC:0,   ENE:0,   FEB:0,   MAR:191, ABR:0,   MAY:205, JUN:0, TOTAL:396},
 };
 
 // CAJA: exacta del Excel
@@ -274,7 +274,7 @@ const historicoPrev = {
 const NOMBRES = ['GOURMET','TERRIZA','PELAVAINAS','MAVERICK','JOKERMAN','YODA','SPARROW','MENTEFRIA','MELLYNATOR','D. PORNO'];
 const ME = 'PELAVAINAS';
 const MESES_COL = ['SEP','OCT','NOV','DIC','ENE','FEB','MAR','ABR','MAY','JUN'];
-let pendientes = ['MAY','JUN'];
+let pendientes = ['JUN'];
 
 function showTab(id){
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',['regular','fichas','meses','jugador','historial','actualizar'][i]===id));
